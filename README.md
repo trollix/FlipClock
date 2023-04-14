@@ -1,20 +1,20 @@
 # FlipClock.js
 
-### Installation
+## Installation
 
 FlipClock.js can be installed in the following ways:
 
-#### Bower
+### Bower
 
-	bower install FlipClock
+    bower install FlipClock
 
 #### Node (NPM)
 
-	npm install flipclock
+    npm install flipclock
 
 #### Download .zip
 
-[Download .ZIP](https://github.com/objectivehtml/FlipClock/releases)
+[Download .ZIP](https://github.com/trollix/FlipClock/releases)
 
 ---
 
