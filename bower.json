@@ -1,6 +1,6 @@
 {
   "name": "flipclock",
-  "version": "0.10.8",
+  "version": "0.7.8",
   "homepage": "https://github.com/objectivehtml/FlipClock",
   "authors": [
     "Objective HTML",
@@ -8,8 +8,8 @@
   ],
   "description": "FlipClock.js is a proper abstract object oriented clock and counter library with a realistic flip effect.",
   "main": [
-    "compiled/flipclock.js",
-    "compiled/flipclock.css"
+    "dist/flipclock.js",
+    "dist/flipclock.css"
   ],
   "license": "MIT",
   "ignore": [
