@@ -24,7 +24,8 @@ var reportError = function (error) {
   gutil.beep(); // Beep 'sosumi' again
 
   // Inspect the error object
-  //console.log(error);
+  //
+  console.log(error);
 
   // Easy error reporting
   //console.log(error.toString());
@@ -91,7 +92,7 @@ task('dist', function () {
 
 // Compile sass into CSS & auto-inject into browsers
 task('sass', function() {
-  return src("src/flipclock/scss/**/*.scss")
+  return src("src/scss/**/*.scss")
     .pipe(init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', reportError))
       .pipe(autoprefixer({

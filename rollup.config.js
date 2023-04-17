@@ -1,5 +1,5 @@
 //import rollup from 'rollup';
-import { exec } from 'child_process';
+//import { exec } from 'child_process';
 import pkg from './package.json';
 import { kebabCase } from 'lodash';
 import scss from 'rollup-plugin-scss';
@@ -9,7 +9,7 @@ import serve from 'rollup-plugin-serve';
 import replace from 'rollup-plugin-replace';
 import progress from 'rollup-plugin-progress';
 import commonjs from '@rollup/plugin-commonjs';
-import eslint from '@rollup/plugin-eslint';
+import { eslint } from 'rollup-plugin-eslint';
 import globals from 'rollup-plugin-node-globals';
 import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
@@ -105,7 +105,11 @@ const plugins = [
     }),
     globals(),
     builtins(),
-    eslint()
+    eslint({
+        //exclude: [
+        //    'src/scss/*.scss',
+        //]
+    })
 ];
 
 // Add the serve/livereload plugins if watch argument has been passed
