@@ -105,7 +105,9 @@ const plugins = [
     }),
     globals(),
     builtins(),
-    eslint()
+    eslint({
+        "eslintIgnore" : ["**/*.scss"]
+    })
 ];
 
 // Add the serve/livereload plugins if watch argument has been passed

@@ -62,7 +62,6 @@ task('dev', ['sass', 'dist'], function() {
   });
   
   watch("src/flipclock/scss/**/*.scss", ['sass']);
-  watch("src/flipclock/scss/**/*.sass", ['sass']);
   watch("src/flipclock/js/**/*.js", ['dist']).on('change', browserSync.reload);
   watch("examples/*.html").on('change', browserSync.reload);
 });
