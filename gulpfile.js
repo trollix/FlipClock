@@ -62,6 +62,7 @@ task('dev', ['sass', 'dist'], function() {
   });
   
   watch("src/flipclock/scss/**/*.scss", ['sass']);
+  watch("src/flipclock/scss/**/*.sass", ['sass']);
   watch("src/flipclock/js/**/*.js", ['dist']).on('change', browserSync.reload);
   watch("examples/*.html").on('change', browserSync.reload);
 });
@@ -91,7 +92,7 @@ task('dist', function () {
 
 // Compile sass into CSS & auto-inject into browsers
 task('sass', function() {
-  return src("src/flipclock/scss/**/*.sass")
+  return src("src/flipclock/scss/**/*.scss")
     .pipe(init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', reportError))
       .pipe(autoprefixer({
