@@ -91,7 +91,7 @@ task('dist', function () {
 
 // Compile sass into CSS & auto-inject into browsers
 task('sass', function() {
-  return src("src/flipclock/scss/**/*.scss")
+  return src("src/flipclock/scss/**/*.sass")
     .pipe(init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', reportError))
       .pipe(autoprefixer({
