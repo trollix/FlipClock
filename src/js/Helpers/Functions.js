@@ -86,7 +86,7 @@ export function chain(before, after) {
 export function concatMap(fn) {
     return x => {
         return x.map(fn).reduce((x, y) => x.concat(y), []);
-    }
+    };
 }
 
 /**
@@ -98,7 +98,7 @@ export function concatMap(fn) {
  * @memberof Helpers.Functions
  */
 export function flatten(value) {
-    return concatMap(value => value)(value)
+    return concatMap(value => value)(value);
 }
 
 /**

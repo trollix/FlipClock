@@ -93,7 +93,7 @@ export function createElement(el, children, attributes) {
 		el.innerHTML = children;
 	}
 	else {
-		appendChildren(el, children)
+		appendChildren(el, children);
 	}
 
 	return el;

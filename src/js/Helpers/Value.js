@@ -98,7 +98,7 @@ export function next(value) {
         .toString()
         .split('')
         .map(char => stringFromCharCodeBy(char, (range, code) => {
-            return !range || code < range.max ? code + 1 : range.min
+            return !range || code < range.max ? code + 1 : range.min;
         }))
         .join('');
 
@@ -120,7 +120,7 @@ export function prev(value) {
         .toString()
         .split('')
         .map(char => stringFromCharCodeBy(char, (range, code) => {
-            return !range || code > range.min ? code - 1 : range.max
+            return !range || code > range.min ? code - 1 : range.max;
         }))
         .join('');
 

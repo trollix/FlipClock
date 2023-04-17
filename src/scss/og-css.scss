@@ -3,16 +3,16 @@
 //
 
 // Project Variables
-@import "fc-variables";
+@use "fc-variables";
 
 // Project Mixins
-@import "mixins";
+@use "mixins";
 
 // Flipclock Base Styles
 // @import "fc-base";
 
 // Theme Styles
-@import "theme-default";
+@use "theme-default";
 
 .flip-clock {
     font-family: $fc-font-family;

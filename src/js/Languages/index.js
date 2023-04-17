@@ -63,4 +63,4 @@ export {
     Vietnamese,
     Chinese,
     TraditionalChinese
-}
+};

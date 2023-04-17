@@ -1,6 +1,6 @@
 import { each } from 'lodash';
 import config from './rollup.config';
-import uglify from 'rollup-plugin-uglify-es';
+import uglify from '@lopatnov/rollup-plugin-uglify';
 
 const plugin = uglify({
     keep_fnames: true

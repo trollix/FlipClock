@@ -1,9 +1,8 @@
-var
-  gulp              = require('gulp'),
-  browserSync       = require('browser-sync').create(),
-  sass              = require('gulp-sass'),
-  sourcemaps        = require('gulp-sourcemaps'),
-  autoprefixer      = require('gulp-autoprefixer');
+import { task, watch, src, dest } from 'gulp';
+var browserSync = require('browser-sync').create();
+import sass from 'gulp-sass';
+import { init, write } from 'gulp-sourcemaps';
+import autoprefixer from 'gulp-autoprefixer';
   header            = require('gulp-header');
   uglify            = require('gulp-uglify');
   concat            = require('gulp-concat');
@@ -42,7 +41,7 @@ var reportError = function (error) {
 
   // Prevent the 'watch' task from stopping
   this.emit('end');
-}
+};
 
 var banner = [
   '/* <%= pkg.name %> - v<%= pkg.version %> */',
@@ -50,7 +49,7 @@ var banner = [
 ].join('\n');
 
 // Static Server + watching scss/html files
-gulp.task('dev', ['sass', 'dist'], function() {
+task('dev', ['sass', 'dist'], function() {
 
   browserSync.init({
     server: {
@@ -62,14 +61,14 @@ gulp.task('dev', ['sass', 'dist'], function() {
     }
   });
   
-  gulp.watch("src/flipclock/scss/**/*.scss", ['sass']);
-  gulp.watch("src/flipclock/js/**/*.js", ['dist']).on('change', browserSync.reload);
-  gulp.watch("examples/*.html").on('change', browserSync.reload);
+  watch("src/flipclock/scss/**/*.scss", ['sass']);
+  watch("src/flipclock/js/**/*.js", ['dist']).on('change', browserSync.reload);
+  watch("examples/*.html").on('change', browserSync.reload);
 });
 
 // Minify js files
-gulp.task('dist', function () {
-  return gulp.src([
+task('dist', function () {
+  return src([
       'src/flipclock/js/vendor/*.js',
       'src/flipclock/js/libs/Base.js',
       'src/flipclock/js/libs/Plugins.js',
@@ -82,27 +81,27 @@ gulp.task('dist', function () {
       'src/flipclock/js/lang/*.js'
     ]) //select all javascript files 
     .pipe(concat('flipclock.js')) //the name of the resulting file
-    .pipe(gulp.dest('dist')) //the destination folder
+    .pipe(dest('dist')) //the destination folder
     .pipe(rename('flipclock.min.js')) //minify the compiled js
     .pipe(uglify())
     .pipe(header(banner, {pkg: pkg})) //add a small version banner to the minified js
-    .pipe(gulp.dest('dist'))
+    .pipe(dest('dist'))
     .pipe(notify({ message: 'Finished minifying JavaScript'}));
 });
 
 // Compile sass into CSS & auto-inject into browsers
-gulp.task('sass', function() {
-  return gulp.src("src/flipclock/scss/**/*.scss")
-    .pipe(sourcemaps.init())
+task('sass', function() {
+  return src("src/flipclock/scss/**/*.scss")
+    .pipe(init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', reportError))
       .pipe(autoprefixer({
         browsers: ['last 2 versions'],
         cascade: false
       }))
-    .pipe(sourcemaps.write("./"))
-    .pipe(gulp.dest("dist"))
+    .pipe(write("./"))
+    .pipe(dest("dist"))
     .pipe(browserSync.stream())
     .pipe(notify({ message: 'Styles recompiled'}));
 });
 
-gulp.task('default', ['dev']);
+task('default', ['dev']);

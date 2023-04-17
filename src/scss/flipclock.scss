@@ -3,7 +3,7 @@
 //
 
 // Project Variables
-@import "fc-variables";
+@import 'fc-variables';
 
 // Project Mixins
 @import "mixins";
@@ -12,6 +12,7 @@
     font-family: $fc-font-family;
     font-size: 16px;
     -webkit-user-select: none;
+    user-select: none;
     text-align: center;
     position: relative;
     width: 100%;
@@ -144,19 +145,13 @@
             .active {
                 z-index: 2;
 
-                .top {
-                    &:after {
-                        // background: linear-gradient(to bottom, rgba($fc-flip-shadow-color,.1) 0%, rgba($fc-flip-shadow-color,1) 100%);
-                    }
-                }
+
 
                 .bottom {
                     z-index: 2;
                     transform-origin: top center;
 
-                    &:after {
-                        // background: linear-gradient(to bottom, rgba($fc-flip-shadow-color,1) 0%, rgba($fc-flip-shadow-color,.1) 100%);
-                    }
+
                 }
             }
 
