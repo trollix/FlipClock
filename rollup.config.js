@@ -106,7 +106,7 @@ const plugins = [
     globals(),
     builtins(),
     eslint({
-        "eslintIgnore" : ["**/*.scss"]
+        "ignorePatterns" : ["**/*.scss"]
     })
 ];
 
